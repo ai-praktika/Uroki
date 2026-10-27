@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IBRATECH.AI — ИИ-видео и автоматизация для бизнеса</title>
+<meta name="description" content="ИИ-видео, моушн-графика и автоматизация контента для бизнеса. Разборы инструментов без воды. RU · NL · EN.">
+<meta property="og:title" content="IBRATECH.AI — ИИ-видео и автоматизация">
+<meta property="og:description" content="ИИ-ролики без съёмок, моушн для Reels, публикации на автопилоте.">
+<meta name="theme-color" content="#F4F6FB">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22395%20329%20213%20212%22%3E%3Crect%20x%3D%22395%22%20y%3D%22329%22%20width%3D%22213%22%20height%3D%22212%22%20rx%3D%2240%22%20fill%3D%22%231F45F2%22/%3E%3Cg%20fill%3D%22%23FFFFFF%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M517.0%20345.9L496%20382.0H574.8C561.3%20363.3%20540.7%20350.0%20517.0%20345.9ZM492.6%20345L453%20414.0L431.3%20377.9C446.1%20359.7%20467.9%20347.4%20492.6%20345ZM419.0%20397.7C413.8%20409.1%20411%20421.7%20411%20435.0C411%20446.3%20413.0%20457.1%20416.8%20467.0H459L419.0%20397.7ZM427.4%20487.0C441.1%20506.5%20462.2%20520.3%20486.7%20524.3L507%20487.0H427.4ZM510.3%20525.1C535.0%20522.7%20556.7%20510.4%20571.6%20492.2L550%20455.5L510.3%20525.1ZM584.2%20471.7C589.2%20460.5%20592%20448.1%20592%20435.0C592%20423.8%20589.9%20413.0%20586.1%20403.0H543L584.2%20471.7Z%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23E10600%22%3E%3Cpath%20d%3D%22M520.7%20431.8L493.0%20406.1C491.1%20404.3%20488%20405.7%20488%20408.3V461.7C488%20464.4%20491.2%20465.7%20493.1%20463.8L520.7%20436.2C522.0%20434.9%20521.9%20433.0%20520.7%20431.8Z%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Лаборатория: светлый лист с сеткой, кобальт как цвет интерфейса, красный — только сигнал. */
+:root{
+  --paper:#F4F6FB; --card:#FFFFFF; --ink:#0A1430; --muted:#55617D; --line:#DCE2EF; --cobalt:#1F45F2; --ice:#E3E9FF; --signal:#E10600;
+  --f-display:"Unbounded","Arial Black",sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#070C1E; --card:#0E1630; --ink:#EEF2FF; --muted:#9AA6C6; --line:#1E2A4D; --cobalt:#5B7BFF; --ice:#16224A; --signal:#FF2A1F; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:28px 28px;background-position:-1px -1px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+.wrap{max-width:480px;margin:0 auto;padding-block:24px 40px;
+  padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:22px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.status{font:500 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.status i{width:7px;height:7px;border-radius:50%;background:#18B26B;box-shadow:0 0 0 4px color-mix(in srgb,#18B26B 20%,transparent)}
+.lang{display:flex;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{all:unset;cursor:pointer;padding:6px 10px;border-radius:999px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.brand{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.brand svg.mk{width:58px;height:58px;flex:none;color:var(--cobalt)}
+.word{font:700 25px/1 var(--f-display);letter-spacing:-.01em;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.word .tri{width:13px;height:15px;color:var(--signal)}
+.who{font:500 12px/1.3 var(--f-mono);color:var(--muted);margin-top:7px;letter-spacing:.04em}
+h1{font:700 clamp(28px,8vw,36px)/1.08 var(--f-display);letter-spacing:-.02em;margin:6px 0 0;text-wrap:balance}
+h1 mark{background:none;color:var(--cobalt)}
+.lead{margin:12px 0 0;color:var(--muted);max-width:42ch}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:var(--cobalt);color:#fff;
+  padding:18px 20px;border-radius:14px;font:700 17px/1.2 var(--f-body);box-shadow:0 10px 24px -12px var(--cobalt);transition:transform .15s,filter .15s}
+.cta small{display:block;font:500 12px/1.3 var(--f-body);opacity:.85;margin-top:3px}
+.cta:hover{filter:brightness(1.07)}.cta:active{transform:scale(.985)}
+.cta svg{width:26px;height:26px;flex:none}
+.cta:focus-visible,.row:focus-visible,.tile:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.label{font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:flex;gap:8px}
+.label::before{content:"//";color:var(--cobalt)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile code{font:500 11px/1 var(--f-mono);color:var(--cobalt);background:var(--ice);padding:5px 7px;border-radius:6px;align-self:flex-start}
+.tile b{font:700 15px/1.2 var(--f-body)}
+.tile span{font-size:13px;color:var(--muted);line-height:1.4}
+@media (max-width:360px){.grid{grid-template-columns:1fr}}
+.links{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .15s}
+.row:hover{border-color:var(--cobalt)}
+.row svg{width:22px;height:22px;flex:none;color:var(--cobalt)}
+.row div{min-width:0;flex:1}
+.row strong{display:block;font-weight:700;font-size:15px}
+.row small{display:block;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.row .arr{width:16px;height:16px;color:var(--muted)}
+.twin{display:flex;gap:14px;align-items:center;text-decoration:none;padding:16px;border-radius:14px;background:#0B0B0D;color:#E6E6E9}
+.twin svg{width:42px;height:42px;flex:none}
+.twin strong{display:block;font:700 15px/1.25 var(--f-body)}
+.twin small{display:block;font-size:13px;color:#9A9AA3}
+footer{display:flex;justify-content:space-between;font:500 11px/1.4 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;border-top:1px solid var(--line);padding-top:16px}
+[data-l]{display:none}
+html[lang="ru"] [data-l="ru"],html[lang="nl"] [data-l="nl"],html[lang="en"] [data-l="en"]{display:revert}
+@media (prefers-reduced-motion:reduce){.cta{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <span class="status"><i aria-hidden="true"></i><span data-l="ru">Агенты в работе 24/7</span><span data-l="nl">Agents actief 24/7</span><span data-l="en">Agents running 24/7</span></span>
+    <div class="lang" role="group" aria-label="Язык / Taal / Language">
+      <button type="button" data-set="ru" aria-pressed="true">RU</button>
+      <button type="button" data-set="nl" aria-pressed="false">NL</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <header class="brand">
+    <svg class="mk" viewBox="405 339 193 192" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M517.0 345.9L496 382.0H574.8C561.3 363.3 540.7 350.0 517.0 345.9ZM492.6 345L453 414.0L431.3 377.9C446.1 359.7 467.9 347.4 492.6 345ZM419.0 397.7C413.8 409.1 411 421.7 411 435.0C411 446.3 413.0 457.1 416.8 467.0H459L419.0 397.7ZM427.4 487.0C441.1 506.5 462.2 520.3 486.7 524.3L507 487.0H427.4ZM510.3 525.1C535.0 522.7 556.7 510.4 571.6 492.2L550 455.5L510.3 525.1ZM584.2 471.7C589.2 460.5 592 448.1 592 435.0C592 423.8 589.9 413.0 586.1 403.0H543L584.2 471.7Z"/></g><g fill="#E10600"><path d="M520.7 431.8L493.0 406.1C491.1 404.3 488 405.7 488 408.3V461.7C488 464.4 491.2 465.7 493.1 463.8L520.7 436.2C522.0 434.9 521.9 433.0 520.7 431.8Z"/></g></svg>
+    <div style="min-width:0">
+      <div class="word" aria-label="ibratech.ai">ibratech<svg class="tri" viewBox="0 0 13 15" aria-hidden="true"><path fill="currentColor" d="M12.3 6.6 2.1.3C1.2-.3 0 .4 0 1.5v12c0 1.1 1.2 1.8 2.1 1.2l10.2-6.3c.7-.4.7-1.4 0-1.8Z"/></svg>ai</div>
+      <div class="who">by Ibrahim Hatuev · Belgium</div>
+    </div>
+  </header>
+
+  <section>
+    <h1>
+      <span data-l="ru">ИИ делает контент. <mark>Вы — бизнес.</mark></span>
+      <span data-l="nl">AI maakt de content. <mark>U runt het bedrijf.</mark></span>
+      <span data-l="en">AI makes the content. <mark>You run the business.</mark></span>
+    </h1>
+    <p class="lead">
+      <span data-l="ru">Создаю ИИ-видео и моушн для компаний, настраиваю публикации на автопилоте и показываю инструменты, которые реально экономят время.</span>
+      <span data-l="nl">Ik maak AI-video en motion graphics voor bedrijven, automatiseer publicaties en toon tools die echt tijd besparen.</span>
+      <span data-l="en">I create AI video and motion graphics for companies, automate publishing, and show the tools that actually save time.</span>
+    </p>
+  </section>
+
+  <a class="cta" href="https://wa.me/32492109080?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%98%D0%98-%D1%80%D0%BE%D0%BB%D0%B8%D0%BA%20/%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E.%20%D0%9C%D0%BE%D1%8F%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" data-wa-ru="%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%98%D0%98-%D1%80%D0%BE%D0%BB%D0%B8%D0%BA%20/%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E.%20%D0%9C%D0%BE%D1%8F%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" data-wa-nl="Hallo%21%20Ik%20wil%20graag%20een%20AI-video%20/%20automatisatie%20bestellen.%20Mijn%20vraag%3A%20" data-wa-en="Hi%21%20I%20would%20like%20to%20order%20an%20AI%20video%20/%20automation.%20My%20task%3A%20" target="_blank" rel="noopener">
+    <span>
+      <span data-l="ru">Заказать ИИ-ролик</span><span data-l="nl">AI-video bestellen</span><span data-l="en">Order an AI video</span>
+      <small><span data-l="ru">Напишите задачу в WhatsApp — предложу формат и цену</span><span data-l="nl">Stuur uw vraag via WhatsApp — ik stel formaat en prijs voor</span><span data-l="en">Send your task on WhatsApp — I'll suggest format and price</span></small>
+    </span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.2Z"/></svg>
+  </a>
+
+  <section>
+    <p class="label"><span data-l="ru">Что делаю</span><span data-l="nl">Wat ik doe</span><span data-l="en">What I do</span></p>
+    <div class="grid">
+      <div class="tile"><code>video.ai</code><b><span data-l="ru">ИИ-видео</span><span data-l="nl">AI-video</span><span data-l="en">AI video</span></b><span><span data-l="ru">Рекламные ролики без съёмочной группы</span><span data-l="nl">Commercials zonder filmploeg</span><span data-l="en">Ads without a film crew</span></span></div>
+      <div class="tile"><code>motion</code><b><span data-l="ru">Моушн для Reels</span><span data-l="nl">Motion voor Reels</span><span data-l="en">Motion for Reels</span></b><span><span data-l="ru">Кинетический текст и графика под речь</span><span data-l="nl">Kinetische tekst en graphics op spraak</span><span data-l="en">Kinetic type and graphics on speech</span></span></div>
+      <div class="tile"><code>autopost</code><b><span data-l="ru">Автоматизация</span><span data-l="nl">Automatisatie</span><span data-l="en">Automation</span></b><span><span data-l="ru">Публикации по расписанию и ИИ-агенты</span><span data-l="nl">Geplande posts en AI-agents</span><span data-l="en">Scheduled posts and AI agents</span></span></div>
+      <div class="tile"><code>learn</code><b><span data-l="ru">Обучение</span><span data-l="nl">Leren</span><span data-l="en">Learning</span></b><span><span data-l="ru">Разборы нейросетей простым языком</span><span data-l="nl">AI-tools in gewone taal uitgelegd</span><span data-l="en">AI tools explained in plain words</span></span></div>
+    </div>
+  </section>
+
+  <section class="links">
+    <p class="label"><span data-l="ru">Связь</span><span data-l="nl">Contact</span><span data-l="en">Contact</span></p>
+    <a class="row" href="https://www.instagram.com/ibratech.ai/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg><div><strong><span data-l="ru">Разборы в Instagram</span><span data-l="nl">Uitleg op Instagram</span><span data-l="en">Breakdowns on Instagram</span></strong><small>@ibratech.ai</small></div><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 3l5 5-5 5"/></svg></a>
+    <a class="row" href="https://t.me/ReelsmakerIK" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.9 14.3l-.4 4-1.4-4.7 9.7-6.1c.5-.3.9-.1.5.2l-8.4 6.6Z"/></svg><div><strong>Telegram</strong><small>@ReelsmakerIK</small></div><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 3l5 5-5 5"/></svg></a>
+    <a class="row" href="mailto:reelsmaker09@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></svg><div><strong>E-mail</strong><small>reelsmaker09@gmail.com</small></div><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 3l5 5-5 5"/></svg></a>
+  </section>
+
+  <a class="twin" href="https://www.instagram.com/ibrahatuev/" target="_blank" rel="noopener">
+    <svg class="" viewBox="405 339 193 192" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#E6E6E9"><path fill-rule="evenodd" clip-rule="evenodd" d="M517.0 345.9L496 382.0H574.8C561.3 363.3 540.7 350.0 517.0 345.9ZM492.6 345L453 414.0L431.3 377.9C446.1 359.7 467.9 347.4 492.6 345ZM419.0 397.7C413.8 409.1 411 421.7 411 435.0C411 446.3 413.0 457.1 416.8 467.0H459L419.0 397.7ZM427.4 487.0C441.1 506.5 462.2 520.3 486.7 524.3L507 487.0H427.4ZM510.3 525.1C535.0 522.7 556.7 510.4 571.6 492.2L550 455.5L510.3 525.1ZM584.2 471.7C589.2 460.5 592 448.1 592 435.0C592 423.8 589.9 413.0 586.1 403.0H543L584.2 471.7Z"/></g><g fill="#E10600"><path d="M520.7 431.8L493.0 406.1C491.1 404.3 488 405.7 488 408.3V461.7C488 464.4 491.2 465.7 493.1 463.8L520.7 436.2C522.0 434.9 521.9 433.0 520.7 431.8Z"/></g></svg>
+    <div>
+      <strong><span data-l="ru">Съёмка для бизнеса — @ibrahatuev</span><span data-l="nl">Video voor bedrijven — @ibrahatuev</span><span data-l="en">Video for business — @ibrahatuev</span></strong>
+      <small><span data-l="ru">Объекты, дрон, Reels и ведение соцсетей</span><span data-l="nl">Werven, drone, Reels en social media</span><span data-l="en">Job sites, drone, Reels and social media</span></small>
+    </div>
+  </a>
+
+  <footer><span>IBRATECH.AI</span><span>Belgium · RU NL EN</span></footer>
+</main>
+<script>
+(function(){
+  var root=document.documentElement, cta=document.querySelector('.cta');
+  function set(l){
+    root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===l))});
+    cta.href='https://wa.me/32492109080?text='+cta.getAttribute('data-wa-'+l);
+    try{localStorage.setItem('it-lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+  var saved=null; try{saved=localStorage.getItem('it-lang')}catch(e){}
+  var nav=(navigator.language||'ru').slice(0,2);
+  set(saved||(nav==='nl'?'nl':nav==='en'?'en':'ru'));
+})();
+</script>
+</body>
+</html>
