@@ -84,6 +84,39 @@ footer{display:flex;justify-content:space-between;font:500 11px/1.4 var(--f-mono
 [data-l]{display:none}
 html[lang="ru"] [data-l="ru"],html[lang="nl"] [data-l="nl"],html[lang="en"] [data-l="en"]{display:revert}
 @media (prefers-reduced-motion:reduce){.cta{transition:none}}
+
+.cl-hint{margin:-4px 0 14px;font-size:13px;color:var(--muted)}
+.cl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 10px}
+.cl{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;-webkit-tap-highlight-color:transparent}
+.cl-av{position:relative;width:min(68px,18vw);aspect-ratio:1;border-radius:50%;padding:2.5px;
+  background:conic-gradient(from 210deg,var(--cobalt),#E10600,var(--cobalt));transition:transform .22s cubic-bezier(.2,.8,.2,1.4),box-shadow .22s}
+.cl-av img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:2.5px solid var(--card);background:#fff}
+.cl-badge{position:absolute;right:-2px;bottom:-2px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  background:var(--cobalt);color:var(--card);border:2px solid var(--card);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.cl-badge svg{width:10px;height:10px}
+.cl-name{font:600 11.5px/1.2 var(--f-body);color:var(--ink);max-width:100%;overflow-wrap:normal;font-size:11px}
+.cl:hover .cl-av,.cl:focus-visible .cl-av{transform:scale(1.12);box-shadow:0 8px 22px -8px var(--cobalt)}
+.cl:active .cl-av{transform:scale(.94)}
+.cl:focus-visible .cl-av{outline:2px solid var(--cobalt);outline-offset:4px}
+@keyframes clIn{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}}
+@keyframes clNudge{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.cl-grid .cl .cl-av{animation:clIn .5s backwards;animation-delay:calc(var(--i)*60ms)}
+.cl-grid .cl:hover .cl-av{animation:none}
+.cl-grid.nudge .cl .cl-av{animation:clNudge .6s;animation-delay:calc(var(--i)*70ms)}
+@media (prefers-reduced-motion:reduce){.cl-grid .cl .cl-av,.cl-grid.nudge .cl .cl-av{animation:none}.cl-av{transition:none}}
+.cl-dlg{border:0;padding:0;border-radius:18px;max-width:min(92vw,420px);background:var(--card);color:var(--ink);box-shadow:0 24px 60px -20px rgba(0,0,0,.55)}
+.cl-dlg::backdrop{background:rgba(5,8,20,.6);backdrop-filter:blur(3px)}
+.cl-dlg .in{padding:22px;display:flex;flex-direction:column;gap:14px}
+.cl-dlg .hd{display:flex;gap:14px;align-items:center}
+.cl-dlg .hd img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#fff}
+.cl-dlg h3{margin:0;font:700 19px/1.2 var(--f-body)}
+.cl-dlg .sub{font-size:13px;color:var(--muted)}
+.cl-dlg p{margin:0;line-height:1.55;font-size:15px}
+.cl-dlg .tags{display:flex;flex-wrap:wrap;gap:6px}
+.cl-dlg .tags span{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
+.cl-dlg .go{display:flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;background:var(--cobalt);color:#fff;padding:14px;border-radius:12px;font-weight:700}
+.cl-dlg .x{all:unset;cursor:pointer;align-self:center;font-size:13px;color:var(--muted);padding:4px 10px}
+
 </style>
 </head>
 <body>
@@ -137,6 +170,33 @@ html[lang="ru"] [data-l="ru"],html[lang="nl"] [data-l="nl"],html[lang="en"] [dat
     </div>
   </section>
 
+  <section>
+    <p class="label"><span data-l="ru">Клиенты и мои работы</span><span data-l="nl">Klanten en mijn werk</span><span data-l="en">Clients and my work</span></p>
+    <p class="cl-hint"><span data-l="ru">Нажмите на логотип — откроется видео, которое я сделал для компании</span><span data-l="nl">Tik op een logo om de video te zien die ik voor het bedrijf maakte</span><span data-l="en">Tap a logo to watch the video I made for the company</span></p>
+    <div class="cl-grid" id="cl-grid">
+      <a class="cl" style="--i:0" href="https://www.instagram.com/reel/DeMvX_gD-AZ/" target="_blank" rel="noopener" aria-label="INGBELG — видео"><span class="cl-av"><img src="../clients/ingbelg.jpg" alt="INGBELG" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">INGBELG</span></a>
+      <a class="cl" style="--i:1" href="https://www.instagram.com/reel/DeXC9_8FLin/" target="_blank" rel="noopener" aria-label="BILTO — видео"><span class="cl-av"><img src="../clients/bilto.jpg" alt="BILTO" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">BILTO</span></a>
+      <a class="cl" style="--i:2" href="https://www.instagram.com/reel/Dei8rg2Fr0j/" target="_blank" rel="noopener" aria-label="A&amp;T Projects — видео"><span class="cl-av"><img src="../clients/atprojects.jpg" alt="A&amp;T Projects" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">A&amp;T Projects</span></a>
+      <a class="cl" style="--i:3" href="https://www.instagram.com/p/DZYEYIiD4L8/" target="_blank" rel="noopener" aria-label="Doreno — видео"><span class="cl-av"><img src="../clients/dorenobv.jpg" alt="Doreno" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">Doreno</span></a>
+      <button class="cl" style="--i:4" type="button" data-open="bb-dlg" aria-label="Belgium Building — о компании"><span class="cl-av"><img src="../clients/belgiumbuilding.jpg" alt="Belgium Building" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="3" r="1.1" fill="currentColor"/><rect x="5" y="5" width="2" height="5.2" rx="1" fill="currentColor"/></svg></i></span><span class="cl-name">Belgium Building</span></button>
+      <a class="cl" style="--i:5" href="https://www.instagram.com/reel/C1txDxLIJ8H/" target="_blank" rel="noopener" aria-label="Bellux Bouw — видео"><span class="cl-av"><img src="../clients/belluxbouw.jpg" alt="Bellux Bouw" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">Bellux Bouw</span></a>
+      <a class="cl" style="--i:6" href="https://www.instagram.com/reel/DUeH8ABAtNm/" target="_blank" rel="noopener" aria-label="EldarCars — видео"><span class="cl-av"><img src="../clients/eldarcars.jpg" alt="EldarCars" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">EldarCars</span></a>
+      <a class="cl" style="--i:7" href="https://www.instagram.com/reel/De_vrDdBgi7/" target="_blank" rel="noopener" aria-label="LOBOKAY — видео"><span class="cl-av"><img src="../clients/lobokay.jpg" alt="LOBOKAY" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">LOBOKAY</span></a>
+      <a class="cl" style="--i:8" href="https://www.instagram.com/reel/Cvp9JzzolVD/" target="_blank" rel="noopener" aria-label="PromoMeubels — видео"><span class="cl-av"><img src="../clients/promomeubels.jpg" alt="PromoMeubels" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">PromoMeubels</span></a>
+      <a class="cl" style="--i:9" href="https://www.instagram.com/reel/CztDKPRowov/" target="_blank" rel="noopener" aria-label="Maryam — видео"><span class="cl-av"><img src="../clients/maryam.jpg" alt="Maryam" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">Maryam</span></a>
+      <a class="cl" style="--i:10" href="https://www.instagram.com/reel/C7JIxOXIu5c/" target="_blank" rel="noopener" aria-label="Mix Kamila — видео"><span class="cl-av"><img src="../clients/mixkamila.jpg" alt="Mix Kamila" width="68" height="68" loading="lazy"><i class="cl-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.8v8.4c0 .6.7 1 1.2.6l6.3-4.2c.4-.3.4-1 0-1.3L4.2 1.2C3.7.8 3 1.2 3 1.8Z"/></svg></i></span><span class="cl-name">Mix Kamila</span></a>
+    </div>
+    <dialog class="cl-dlg" id="bb-dlg" aria-labelledby="bb-t">
+      <div class="in">
+        <div class="hd"><img src="../clients/belgiumbuilding.jpg" alt="Belgium Building"><div><h3 id="bb-t">Belgium Building</h3><div class="sub"><span data-l="ru">Строительная компания · Бельгия</span><span data-l="nl">Bouwbedrijf · België</span><span data-l="en">Construction company · Belgium</span></div></div></div>
+        <p><span data-l="ru">Бельгийская строительная компания: кровельные работы, тотальная реновация и общестроительные работы под ключ. Для них я снимал и монтировал видео.</span><span data-l="nl">Belgisch bouwbedrijf: dakwerken, totaalrenovatie en algemene bouwwerken op maat. Voor hen filmde en monteerde ik video’s.</span><span data-l="en">Belgian construction company: roofing, full renovations and general building work. I filmed and edited videos for them.</span></p>
+        <div class="tags"><span data-l="ru">Кровля</span><span data-l="nl">Dakwerken</span><span data-l="en">Roofing</span><span data-l="ru">Тотальная реновация</span><span data-l="nl">Totaalrenovatie</span><span data-l="en">Full renovation</span><span data-l="ru">Общестрой</span><span data-l="nl">Algemene bouw</span><span data-l="en">General building</span></div>
+        <a class="go" href="https://www.belgiumbuilding.be/" target="_blank" rel="noopener"><span data-l="ru">Перейти на сайт компании</span><span data-l="nl">Naar de website</span><span data-l="en">Visit their website</span> →</a>
+        <button class="x" type="button" data-close><span data-l="ru">Закрыть</span><span data-l="nl">Sluiten</span><span data-l="en">Close</span></button>
+      </div>
+    </dialog>
+  </section>
+
   <section class="links">
     <p class="label"><span data-l="ru">Связь</span><span data-l="nl">Contact</span><span data-l="en">Contact</span></p>
     <a class="row" href="https://www.instagram.com/ibratech.ai/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg><div><strong><span data-l="ru">Разборы в Instagram</span><span data-l="nl">Uitleg op Instagram</span><span data-l="en">Breakdowns on Instagram</span></strong><small>@ibratech.ai</small></div><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 3l5 5-5 5"/></svg></a>
@@ -169,5 +229,19 @@ html[lang="ru"] [data-l="ru"],html[lang="nl"] [data-l="nl"],html[lang="en"] [dat
   set(saved||(nav==='nl'?'nl':nav==='en'?'en':'ru'));
 })();
 </script>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){var d=document.getElementById(b.dataset.open);if(d&&d.showModal){d.showModal()}})});
+  document.querySelectorAll('dialog.cl-dlg').forEach(function(d){
+    d.addEventListener('click',function(e){if(e.target===d||e.target.closest('[data-close]'))d.close()});
+  });
+  var g=document.getElementById('cl-grid');
+  if(g&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){g.classList.add('nudge')},700);io.disconnect()}})},{threshold:.4});io.observe(g);
+  }
+})();
+</script>
+
 </body>
 </html>
